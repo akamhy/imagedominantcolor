@@ -54,3 +54,10 @@ def test_all():
     dominantcolor = DominantColor(grey_apple_file_path)
     os.remove(grey_apple_file_path)
     assert dominantcolor.dominant_color == "l"
+
+    rgb_strip_url = "https://user-images.githubusercontent.com/64683866/151845374-dd1a83e5-3265-491e-830d-39be120af65b.png"
+    rgb_strip_file_path = os.path.join(this_dir, "rgb_strip.jpeg")
+    urllib.request.urlretrieve(rgb_strip_url, rgb_strip_file_path)
+    dominantcolor = DominantColor(rgb_strip_file_path)
+    os.remove(rgb_strip_file_path)
+    assert dominantcolor.dominant_color == "n"
