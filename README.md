@@ -4,7 +4,7 @@
 
 <h3>Get the dominant color of any image.</h3>
 
-
+</div>
 
 ### License
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/akamhy/imagedominantcolor/blob/main/LICENSE)
