@@ -74,6 +74,8 @@ class DominantColor:
                 self.total_pixels += 1
 
     def dominant_color_of_pixel(self, pixel):
+        if type(pixel) == int:
+            return "l"
         r, g, b = pixel[0], pixel[1], pixel[2]
         if r > g and r > b:
             return "r"
