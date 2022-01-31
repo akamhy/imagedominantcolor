@@ -1,6 +1,6 @@
 from PIL import Image
 from collections import Counter
-from typing import Tuple, Union, List, cast
+from typing import Tuple, Union, List
 
 
 class DominantColor:
@@ -18,7 +18,7 @@ class DominantColor:
         self.l: int = 0
         self.resized_image = self.image.resize(
             (DominantColor.resize_value, DominantColor.resize_value), Image.ANTIALIAS
-        )
+        ).convert("RGBA")
         self.image.close()
         self.image_data = self.resized_image.getdata()
         self.generate_dominant_color_of_pixels_of_image_array()
@@ -61,6 +61,16 @@ class DominantColor:
             self.total_pixels * (DominantColor.minimum_percent_difference_of_rgb / 100)
         )
 
+        if (
+            max(
+                set(self.dominant_color_of_pixels_of_image_array),
+                key=self.dominant_color_of_pixels_of_image_array.count,
+            )
+            == "l"
+        ):
+            self.dominant_color = "l"
+            return
+
         if (self.r - self.mpd) > self.g and (self.r - self.mpd) > self.b:
             self.dominant_color = "r"
             return
@@ -70,7 +80,7 @@ class DominantColor:
         if (self.b - self.mpd) > self.r and (self.b - self.mpd) > self.g:
             self.dominant_color = "b"
             return
-        self.dominant_color = "l"
+        self.dominant_color = "n"
 
     def set_rgbl_value_of_image(self) -> None:
         """
@@ -85,34 +95,38 @@ class DominantColor:
         g = self.counter.get("g")
         b = self.counter.get("b")
         l = self.counter.get("l")
+
         self.r = r if r else 0
         self.g = g if g else 0
         self.b = b if b else 0
         self.l = l if l else 0
 
     def generate_dominant_color_of_pixels_of_image_array(self) -> None:
+
         self.total_pixels: int = 0
         self.dominant_color_of_pixels_of_image_array: List = []
+
         for i in range(DominantColor.resize_value):
+
             for j in range(DominantColor.resize_value):
+
                 self.dominant_color_of_pixels_of_image_array.append(
                     self.dominant_color_of_pixel(self.image_data.getpixel((i, j)))
                 )
+
                 self.total_pixels += 1
 
-    def dominant_color_of_pixel(
-        self, pixel: Union[int, Tuple[int, int, int], Tuple[int, int, int, int]]
-    ) -> str:
-        if type(pixel) == int:
-            return "l"
-        else:
-            # Trust me, mypy: pixel can now only be tuple of 3 or 4 integers. 3 is RGB and 4 is RGB + Alpha
-            pixel = cast(Union[Tuple[int, int, int], Tuple[int, int, int, int]], pixel)
-            r, g, b = pixel[0], pixel[1], pixel[2]
-            if r > g and r > b:
-                return "r"
-            if g > b and g > r:
-                return "g"
-            if b > r and b > g:
-                return "b"
-            return "l"
+    def dominant_color_of_pixel(self, pixel: Tuple[int, int, int, int]) -> str:
+
+        r, g, b = pixel[0], pixel[1], pixel[2]
+
+        if r > g and r > b:
+            return "r"
+
+        if g > b and g > r:
+            return "g"
+
+        if b > r and b > g:
+            return "b"
+
+        return "l"
