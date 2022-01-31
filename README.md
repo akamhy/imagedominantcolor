@@ -17,7 +17,7 @@ ImageDominantColor is a Python package/library for **detecting dominant color of
 
 It can take any input image and tell the dominant color in image. It does not uses k-means clustering for detecting dominant color but instead quantize the individual pixels and calculates the statistical mode of the quantized values. And yes, it works!
 
-ImageDominantColor does not depend on numpy unlike most of the algrithms for the same task and is also fast and minimalist.
+ImageDominantColor does not depend on numpy unlike most of the other implementations for the same task and is also fast and minimalist.
 
 
 What ImageDominantColor is not?
