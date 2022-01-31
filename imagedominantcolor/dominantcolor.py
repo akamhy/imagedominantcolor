@@ -24,14 +24,17 @@ class DominantColor:
         self.rgbl = (self.r, self.g, self.b, self.l)
 
     def __repr__(self):
-        return "DominantColor(r:%s g:%s b:%s l:%s; dominant_color:%s; resize_value:%s; minimum_percent_difference_of_rgb:%s)" % (
-            self.r,
-            self.g,
-            self.b,
-            self.l,
-            self.dominant_color,
-            str(self.resize_value),
-            str(self.minimum_percent_difference_of_rgb),
+        return (
+            "DominantColor(r:%s g:%s b:%s l:%s; dominant_color:%s; resize_value:%s; minimum_percent_difference_of_rgb:%s)"
+            % (
+                self.r,
+                self.g,
+                self.b,
+                self.l,
+                self.dominant_color,
+                str(self.resize_value),
+                str(self.minimum_percent_difference_of_rgb),
+            )
         )
 
     def __str__(self):
