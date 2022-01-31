@@ -37,15 +37,15 @@ jobs:
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        flake8 imagedominantcolor/ --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+        flake8 imagedominantcolor/ --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics --per-file-ignores="imagedominantcolor/__init__.py:F401 imagedominantcolor/dominantcolor.py:E741"
     - name: Test with pytest
       run: |
         pytest
-    # - name: Static type test with mypy
-    #   run: |
-    #     mypy
+    - name: Static type test with mypy
+      run: |
+        mypy
     - name: Upload coverage to Codecov
       run: |
         bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }}
