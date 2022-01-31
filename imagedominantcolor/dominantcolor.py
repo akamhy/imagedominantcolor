@@ -47,16 +47,6 @@ class DominantColor:
         return self.dominant_color
 
     def set_dominat_color_of_image(self) -> None:
-        """
-        Set the dominant_color attribute for the instance based on
-        mode of r,g,b and l values and also checking the difference
-        between r,g and b is more than minimum acceptable difference
-        default values is minimum 10 percent difference.
-
-        If the highest value is not bigger than the other two colors
-        by the minimum percent difference of total_pixels than there maybe
-        more than one dominant color.
-        """
         self.mpd = int(
             self.total_pixels * (DominantColor.minimum_percent_difference_of_rgb / 100)
         )
