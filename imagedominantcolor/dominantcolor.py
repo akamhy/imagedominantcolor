@@ -47,6 +47,16 @@ class DominantColor:
         return self.dominant_color
 
     def set_dominat_color_of_image(self) -> None:
+        """
+        Set the dominant_color attribute for the instance based on
+        mode of r,g,b and l values and also checking the difference
+        between r,g and b is more than minimum acceptable difference
+        default values is minimum 10 percent difference.
+
+        If the highest value is not bigger than the other two colors
+        by the minimum percent difference of total_pixels than there maybe
+        more than one dominant color.
+        """
         self.mpd = int(
             self.total_pixels * (DominantColor.minimum_percent_difference_of_rgb / 100)
         )
@@ -63,6 +73,14 @@ class DominantColor:
         self.dominant_color = "l"
 
     def set_rgbl_value_of_image(self) -> None:
+        """
+        Sets the value for attribute r,g,b and l.
+
+        Note that these attributes indicates the number of
+        pixels which have dominating r,g,b and l values repectively.
+
+        The sum of r,g,b and l should be equal to total_pixels attribute.
+        """
         r = self.counter.get("r")
         g = self.counter.get("g")
         b = self.counter.get("b")
@@ -88,7 +106,7 @@ class DominantColor:
         if type(pixel) == int:
             return "l"
         else:
-            # Trust me, mypy: d can now only be tuple of 3 or 4 integers. 3 is RGB and 4 is RGB + Alpha
+            # Trust me, mypy: pixel can now only be tuple of 3 or 4 integers. 3 is RGB and 4 is RGB + Alpha
             pixel = cast(Union[Tuple[int, int, int], Tuple[int, int, int, int]], pixel)
             r, g, b = pixel[0], pixel[1], pixel[2]
             if r > g and r > b:
