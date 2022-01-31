@@ -1,6 +1,6 @@
 from PIL import Image
 from collections import Counter
-from typing import Tuple, Union, List
+from typing import Tuple, List
 
 
 class DominantColor:
