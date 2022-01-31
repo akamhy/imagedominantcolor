@@ -20,6 +20,10 @@ It can take any input image and tell the dominant color in image. It does not us
 ImageDominantColor does not depend on numpy unlike most of the algrithms for the same task and is also fast and minimalist.
 
 
+What ImageDominantColor is not?
+> ImageDominantColor does not calculates the average color of the image. Also note that the average color of an image is not same as its dominant color.
+
+
 ### Installation
 
   - Using [pip](https://en.wikipedia.org/wiki/Pip_(package_manager)):
