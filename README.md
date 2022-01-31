@@ -1,6 +1,6 @@
 <div align="center">
 <h1> ImageDominantColor </h1>
-<h3>Get the dominant color of any image</h3>
+<h4>Get the dominant color of any image</h4>
 </div>
 
 <p align="center">
@@ -8,10 +8,16 @@
 <a href="https://codecov.io/gh/akamhy/imagedominantcolor"><img alt="codecov" src="https://codecov.io/gh/akamhy/imagedominantcolor/branch/main/graph/badge.svg?token=xCV7vQ9MJo"></a>
 <a href="https://pypi.org/project/imagedominantcolor/"><img alt="pypi" src="https://img.shields.io/pypi/v/imagedominantcolor.svg"></a>
 <a href="https://pepy.tech/project/imagedominantcolor?versions=1*"><img alt="Downloads" src="https://pepy.tech/badge/imagedominantcolor/month"></a>
-<a href="https://github.com/akamhy/imagedominantcolor/commits/master"><img alt="GitHub lastest commit" src="https://img.shields.io/github/last-commit/akamhy/imagedominantcolor?color=blue&style=flat-square"></a>
 <a href="#"><img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/imagedominantcolor?style=flat-square"></a>
 <a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
 </p>
+
+### Introduction
+ImageDominantColor is a Python package/library for **detecting dominant color of images**.
+
+It can take any input image and tell the dominant color in image. It does not uses k-means clustering for detecting dominant color but instead quantize the individual pixels and calculates the statistical mode of the quantized values. And yes, it works!
+
+ImageDominantColor does not depend on numpy unlike most of the algrithms for the same task and is also fast and minimalist.
 
 
 ### Installation
@@ -64,8 +70,11 @@ Output dominant color and what their meanings are:
   - `r` - Red is the dominant color in the image.
   - `g` - Green is the dominant color for the image.
   - `b` - Blue is the dominant color.
-  - `l` - It is lowercase L and it means the image is a grayscale image. L is short for luminance. Most of the image lacks color and luminance is the dominant color.
+  - `l` - It is lowercase L and it means the image is a grayscale image. L is short for luminance. Most of the image lacks color.
 
+What are `r`, `g`, `b` and `l` attributes of `DominantColor` objects?
+> The library shrinks the image before checking the dominant color and the default resize value is 256. Thus every image is shrunk to a 256 pixels image.
+The r,g,b and l attributes indicate the number of pixels which have r,g,b and l as dominating value.
 
 ### License
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/akamhy/imagedominantcolor/blob/main/LICENSE)
