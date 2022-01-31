@@ -74,7 +74,8 @@ Output dominant color and what their meanings are:
   - `r` - Red is the dominant color in the image.
   - `g` - Green is the dominant color for the image.
   - `b` - Blue is the dominant color.
-  - `l` - It is lowercase L and it means the image is a grayscale image. L is short for luminance. Most of the image lacks color.
+  - `l` - It is lowercase L and it implies that the image is a mostly a grayscale image. L for luminance and most of the image lacks color.
+  - `n` - None of the color out of r, g and b are dominant but the image is not grayscale. It implies that the image has equal regions where 2 or 3 colors dominate, [example here](https://user-images.githubusercontent.com/64683866/151845374-dd1a83e5-3265-491e-830d-39be120af65b.png). You can check the rgb attribute to decide what to do with such cases.
 
 What are `r`, `g`, `b` and `l` attributes of `DominantColor` objects?
 > The library shrinks the image before checking the dominant color and the default resize value is 256. Thus every image is shrunk to a 256 pixels image.
