@@ -34,4 +34,4 @@ pip install git+https://github.com/akamhy/imagedominantcolor.git
 Copyright (c) 2022 Akash Mahanty.
 
 Released under the MIT License. See
-[license](https://github.com/akamhy/imagedominantcolor/blob/master/LICENSE) for details.
+[license](https://github.com/akamhy/imagedominantcolor/blob/main/LICENSE) for details.
