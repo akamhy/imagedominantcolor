@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://raw.githubusercontent.com/akamhy/imagedominantcolor/main/assets/image_dominant_color_logo.svg"><br>
+<img src="https://raw.githubusercontent.com/akamhy/imagedominantcolor/main/assets/image_dominant_color_logo.svg" width="300"><br>
 <h3>Get the dominant color of any image</h3>
 </div>
 
