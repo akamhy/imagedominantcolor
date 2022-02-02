@@ -1,6 +1,6 @@
 <div align="center">
-<h1> ImageDominantColor </h1>
-<h4>Get the dominant color of any image</h4>
+<img src="https://raw.githubusercontent.com/akamhy/imagedominantcolor/main/assets/image_dominant_color_logo.svg"><br>
+<h3>Get the dominant color of any image</h3>
 </div>
 
 <p align="center">
