@@ -17,7 +17,7 @@ class DominantColor:
         self.b: int = 0
         self.l: int = 0
         self.resized_image = self.image.resize(
-            (DominantColor.resize_value, DominantColor.resize_value), Image.ANTIALIAS
+            (DominantColor.resize_value, DominantColor.resize_value), Image.Resampling.LANCZOS
         ).convert("RGBA")
         self.image.close()
         self.image_data = self.resized_image.getdata()
